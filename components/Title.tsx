@@ -1,16 +1,16 @@
 import React from 'react';
-import {Text, StyleSheet} from 'react-native';
+import { Text } from 'react-native';
 
-const Title = ({text}: {text: string}) => {
-  return <Text style={styles.title}>{text}</Text>;
+interface TitleProps {
+  text: string;
+}
+
+const Title: React.FC<TitleProps> = ({ text }) => {
+  return (
+    <Text style={{ fontSize: 28, fontWeight: 'bold', marginBottom: 20 }}>
+      {text}
+    </Text>
+  );
 };
 
 export default Title;
-
-const styles = StyleSheet.create({
-  title: {
-    fontSize: 28,
-    fontWeight: 'bold',
-    marginBottom: 30,
-  },
-});
