@@ -1,67 +1,79 @@
-import React, { useState } from 'react';
-import { View, SafeAreaView, ScrollView } from 'react-native';
-import Title from './components/Title';
-import CustomInput from './components/CustomInput';
-import CustomButton from './components/CustomButton';
+import {StyleSheet, Text, View, Image} from 'react-native';
+import React from 'react';
 
-const RegistrationScreen: React.FC = () => {
-  const [name, setName] = useState('');
-  const [username, setUsername] = useState('');
-  const [email, setEmail] = useState('');
-  const [address, setAddress] = useState('');
-  const [phone, setPhone] = useState('');
-
-  const handleRegister = () => {
-    console.log({
-      name,
-      username,
-      email,
-      address,
-      phone,
-    });
-  };
-
+const Flexbox = () => {
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: '#fff' }}>
-      <ScrollView contentContainerStyle={{ flexGrow: 1, padding: 20 }}>
-        <Title text="Registration" />
-
-        <CustomInput
-          label="Name"
-          placeholder="Masukan nama lengkap anda"
-          value={name}
-          onChangeText={setName}
+    <>
+      <View style={styles.container}>
+        <View style={styles.blackkBox} />
+        <View style={styles.yellowBox} />
+        <View style={styles.blackBox} />
+      </View>
+      <View style={styles.container2}>
+        <Image
+          source={require('./assets/logo-with-motto-3.png')}
+          style={styles.gambar}
         />
-        <CustomInput
-          label="Username"
-          placeholder="Masukan username anda"
-          value={username}
-          onChangeText={setUsername}
-        />
-        <CustomInput
-          label="Email"
-          placeholder="Masukan email anda"
-          value={email}
-          onChangeText={setEmail}
-        />
-        <CustomInput
-          label="Address"
-          placeholder="Masukan alamat anda"
-          value={address}
-          onChangeText={setAddress}
-        />
-        <CustomInput
-          label="Phone Number"
-          placeholder="Masukan Nomor telepon anda"
-          value={phone}
-          onChangeText={setPhone}
-          keyboardType="numeric"
-        />
-
-        <CustomButton text="Register" onPress={handleRegister} />
-      </ScrollView>
-    </SafeAreaView>
+      </View>
+      <View style={styles.container3}>
+        <View style={styles.blackkBox} />
+        <View style={styles.yellowBox} />
+        <View style={styles.blackBox} />
+      </View>
+    </>
   );
 };
 
-export default RegistrationScreen;
+export default Flexbox;
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1 / 3,
+    backgroundColor: 'red',
+    flexDirection: 'row',
+    justifyContent: 'flex-start', // main axis
+    alignItems: 'center', // cross axis
+  },
+
+  blackkBox: {
+    height: 80,
+    width: 80,
+    backgroundColor: 'black',
+    marginHorizontal: 8, // kiri ke kanan
+  },
+
+  yellowBox: {
+    height: 80,
+    width: 80,
+    backgroundColor: 'yellow',
+    marginHorizontal: 8,
+  },
+
+  blackBox: {
+    height: 80,
+    width: 80,
+    backgroundColor: 'black',
+    marginHorizontal: 8,
+  },
+  container2: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'center', // main axis
+    alignItems: 'center', // cross axis
+    backgroundColor: 'white',
+  },
+
+  gambar: {
+    width: 350,
+    height: 150,
+    marginBottom: 10,
+    resizeMode: 'contain',
+  },
+  container3: {
+    flex: 1 / 3,
+    flexDirection: 'row',
+    justifyContent: 'space-around', // main axis
+    alignItems: 'center', // cross axis
+    backgroundColor: 'blue',
+  },
+});
